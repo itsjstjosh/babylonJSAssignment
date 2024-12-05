@@ -1,0 +1,24 @@
+{
+  "name": "testproj",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc && vite build",
+    "preview": "vite preview --host",
+    "lighting02build": "tsc && vite build lighting02",
+    "lighting02preview": "vite preview lighting02",
+    "rotationbuild": "tsc && vite build rotation",
+    "rotationpreview": "vite preview rotation",
+    "villagebuild": "tsc && vite build village",
+    "villagepreview": "vite preview village",
+    "motionbuild": "vite build motion",
+    "motionpreview": "vite preview motion --host"
+
+  },
+  "devDependencies": {
+    "typescript": "~5.6.2",
+    "vite": "^5.4.10"
+  }
+}
