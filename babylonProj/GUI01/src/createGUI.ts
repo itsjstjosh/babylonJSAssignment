@@ -30,7 +30,7 @@ function createSceneButton(
   );
   button.onPointerUpObservable.add(function () {
     buttonClick.play();
-    alert("you did it!");
+    alert("you clicked it!");
   });
   advtex.addControl(button);
   return button;
@@ -53,10 +53,23 @@ function motionPageButton(
   button.color = "red";
   button.cornerRadius = 20;
   button.background = "green";
-  
+  const buttonClick: Sound = new Sound(
+    "MenuClickSFX",
+    "./assets/audio/arcade-kid.mp3",
+    scene,
+    null,
+    {
+      loop: true,
+      autoplay: false,
+    }
+  );
   
   button.onPointerUpObservable.add(function () {
-    location.href = "http://localhost:5174/motion/";
+    if (buttonClick.isPlaying) {
+      buttonClick.stop();
+    }else{
+      buttonClick.play();
+    }
   });
   advtex.addControl(button);
   return button;
@@ -82,7 +95,7 @@ export default function createGUIScene(runScene: SceneData) {
     let button2: Button = motionPageButton(
       runScene.scene,
       "but2",
-      "forbidden button",
+      "music on/off",
       "0px",
       "70px",
       advancedTexture
